@@ -453,7 +453,7 @@ const (
 	defaultHTMLDir          = "./html/*"
 	defaultHTTPReadTimeout  = 10 * time.Second
 	defaulHTTPtWriteTimeout = 10 * time.Second
-	defaultPort             = "5000"
+	defaultPort             = "8080"
 )
 
 func lookupEnvOr(key string, defaultValue string) string {
