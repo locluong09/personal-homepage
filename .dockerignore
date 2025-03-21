@@ -1,0 +1,5 @@
+# flyctl launch added from .gitignore
+ This file is used to ignore files and directories from being tracked by git.
+**/.DS_Store
+**/node_modules
+fly.toml
