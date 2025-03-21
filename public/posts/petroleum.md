@@ -1,11 +1,6 @@
-Petroleum engineering
-2021-May-09
+Physics-based modeling of bedload transport
+2024-Sep-09
 golangPic2.png
 Petroleum engineering
 -----
 
-Todo!
-
-Reservoir Engineering
- 
-Production Optimization
