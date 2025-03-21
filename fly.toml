@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for personal-blog-withered-wind-5659 on 2025-03-21T15:35:32-06:00
+# fly.toml app configuration file generated for locluong-blog on 2025-03-21T15:53:56-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-blog-withered-wind-5659'
-primary_region = 'phx'
+app = 'locluong-blog'
+primary_region = 'den'
 
 [build]
 
@@ -17,6 +17,6 @@ primary_region = 'phx'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
+  memory = '5gb'
   cpu_kind = 'shared'
-  cpus = 1
+  cpus = 2
