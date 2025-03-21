@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for personal-blog-shy-river-1239 on 2025-03-21T10:15:43-06:00
+# fly.toml app configuration file generated for personal-blog-withered-wind-5659 on 2025-03-21T15:35:32-06:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-blog-shy-river-1239'
+app = 'personal-blog-withered-wind-5659'
 primary_region = 'phx'
 
 [build]
@@ -11,7 +11,7 @@ primary_region = 'phx'
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = false
+  auto_stop_machines = 'off'
   auto_start_machines = true
   min_machines_running = 1
   processes = ['app']
