@@ -4,7 +4,7 @@
 #
 
 app = 'locluong-blog'
-primary_region = 'den'
+primary_region = 'phx'
 
 [build]
 
