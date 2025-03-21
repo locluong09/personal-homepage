@@ -1,5 +1,5 @@
 Todo lists
-2025-March-21
+2025-Mar-21
 golangPic1.png
 Todo
 -----
