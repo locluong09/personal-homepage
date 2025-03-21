@@ -4,7 +4,7 @@
 #
 
 app = 'locluong-blog'
-primary_region = 'phx'
+primary_region = 'ams'
 
 [build]
 
@@ -17,6 +17,6 @@ primary_region = 'phx'
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
+  memory = '256mb'
   cpu_kind = 'shared'
   cpus = 1
