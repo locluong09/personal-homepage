@@ -1,7 +1,9 @@
-Neural networks and deep learning
-2021-Apr-12
+Combining Convolutional and Recurrent Neural Networks in Generative Adversarial Network
+2022-Jun-20
 golangPic1.png
-machine learning, deep learning
+convolution neural networks, recurrent neural networks, CNN, RNN, GAN
 -----
 
-Todo!
+The application of artificial intelligence recently has gained a great deal of attention in the oil and gas industry and appears in various studies in petroleum engineering. With the usage of machine learning and deep learning algorithms, reservoir behaviors can be predicted and interpreted from the available historical data without relying on complicated physical models. In this study, the convolutional and recurrent neural networks will be combined into the generative adversarial network (GAN) architecture to predict the oil production rate. We first use machine learning models based on XGBoost algorithms to extract the important features for further training phase of the GAN model, then we develop the deep learning model based on GAN architecture, and present the step by step workflow to train the model and predict future oil production rate. 
+
+In GAN architecture, the long short-term memory (LSTM) network will be employed as generator and the convolutional neural network (CNN) will be implemented as discriminator. A new feature will be generated from the LSTM network, then incorporated with previous training data to feed in the CNN discriminator and produce the predicted oil rate. By using the mean square error loss function to minimize the discrepancy between real and predicted values, the LSTM and CNN models then will be trained simultaneously on the training data, evaluated on the validation data, and proved the generalization capability on the test data. The results of four oil wells from field cases have demonstrated the applicability of the model to simulate and predict the behavior of oil well performance.
