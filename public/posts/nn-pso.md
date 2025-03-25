@@ -1,7 +1,7 @@
 Coupling neural networks and particle swarm optimization
 2021-Aug-08
 pair-programming-rafiki.png
-neural networks, PSO
+neural networks, PSO, optimization
 -----
 
 ## 1. Introduction
@@ -12,7 +12,7 @@ Here, we are about to design a machine learning model (specifically a neural net
 
 ## 2. Overview of a neural network
 <!-- ![Neural network](https://raw.githubusercontent.com/locluong09/petroleum-production-prediction/refs/heads/master/Output%20from%20LSTM_Kaggle/F1/Pic/F1_gas.png "Neural net") -->
-![Neural network](../figures/nn-pso/nn.png "Neural net")
+![Neural network](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/nn-pso/nn.png "Neural net")
 In a typical multi-layer neural networks, beside the input and output layers, there are several hidden layers in the middle. Figure above is an example of fully connect multi-layer neural network with three hidden layers. Let denote the output of each unit as $a$, therefore the output of a layer $(l)$ is $\mathbf{a}^{(l)}$. In a neural network of $L$ layers, there are corresponding $L$ matrices of coefficients ($\mathbf{W}^{(l)} \in \mathbb{R}^{d^{(l)}\times d^{(l+1)}}$) that represent connection between layer $l-1$ and layer $l$. Note that layer $0$ is the input layers. Bias of layer $l$ is usually denoted by $\mathbf{b}^{(l)} \in \mathbb{R}^{d^{(l)}}$. We then can define $\mathbf{\theta}^{(l)} = [\mathbf{b}^{(l)}, \mathbf{W}^{(l)}]$ as the weight matrix of layer $(l)$. The output from each layer can be written as:
 
 $$
@@ -68,4 +68,4 @@ The hyper-parameters used in PSO are:
 ## 4. Results
 
 
-You can see this [GitHub link](https://github.com/locluong09/PSO-NN) for some results as well as detailed implementation.
+You can see this [GitHub repo](https://github.com/locluong09/PSO-NN) for some results as well as detailed implementation.
