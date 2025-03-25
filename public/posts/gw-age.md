@@ -50,13 +50,20 @@ and $\alpha_L(L)$ is longitudinal dispersivity, $\alpha_T(L)$ is transverse disp
 
 ![domain](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/domain.png "GW")
 
-The simulation domain of this model is in two dimensions (length and depth), and the top domain evolves over time. To simplify the domain as much as possible, we only depict the Bengal delta with a very coarse and simple conceptual 2D domain (figure above). The model is represented by triangular mesh using a built-in function in MATLAB. We employed a straightforward mesh technique by joining x and z coordinates. The recharged area is located at the uppermost portion of the domain and discharged area is located at basement, which is at the same level as the ocen. We imposed no-flow boundaries for left, right, and bottom edges of the domain. The top water table is represented by the top boundary, which is determined by the specific values used for hydraulic heads.
+To simplify the domain as much as possible, we only depict the Bengal delta with a very coarse and simple conceptual 2D domain (figure above). The simulation domain of this model is in two dimensions (length and depth), and the top domain evolves over time. The model is represented by triangular mesh using a built-in function in MATLAB. We employed a straightforward mesh technique by joining x and z coordinates, then use a Delaunay triangulation from the points in a matrix P that contain x and z coordinates. The recharged area is located at the uppermost portion of the domain and discharged area is located at basement, which is at the same level as the sea level. We imposed no-flow boundaries for left, right, and bottom edges of the domain. Above sea level, we set salinity concentration to be zero. 
 
 ## Results
 
-Here are some results from the simulation. 
+Here are final results from running simulation for ~ 16000 years.
+
 ![head](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/head.png "GW")
 ![concentration](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/concentration.png "GW")
 ![age](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/age.png "GW")
+
 A gif to show to concentration evolves over time is shown below.
-![con](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/simulation.gif)
+<!-- <img src="animation.gif" width="100%" /> -->
+<!-- <img src="https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/simulation.gif" width="800px" /> -->
+
+![concentration](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/simulation.gif)
+
+You can see this [GitHub repo](https://github.com/locluong09/Computational-Modeling) for some results as well as detailed implementation.
