@@ -1,4 +1,4 @@
-Groundwater modeling and solute transport under an unconfined aquifer
+Groundwater modeling and solute transport in an unconfined aquifer
 2023-Mar-10
 golangPic1.png
 seawater entrapment, solute transport, groundwater modeling
@@ -60,7 +60,7 @@ Here are final results from running simulation for ~ 16000 years.
 ![concentration](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/concentration.png "GW")
 ![age](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/age.png "GW")
 
-A gif to show to concentration evolves over time is shown below.
+Below is a gif showing concentration evolves over time:
 <!-- <img src="animation.gif" width="100%" /> -->
 <!-- <img src="https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/simulation.gif" width="800px" /> -->
 
