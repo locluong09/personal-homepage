@@ -68,4 +68,4 @@ The hyper-parameters used in PSO are:
 ## 4. Results
 
 
-You can see this [GitHub repo](https://github.com/locluong09/PSO-NN) for some results as well as detailed implementation.
+You can see this [GitHub repository](https://github.com/locluong09/PSO-NN) for some results as well as detailed implementation.
