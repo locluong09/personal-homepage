@@ -3,30 +3,39 @@
 {{template "head.gohtml"}}
 
 <body>
-{{template "navBar.gohtml"}}
-<main>
-    <ol class="blogListOL">
+
+<div class="minimal-container">
+  <header class="minimal-header">
+    <h1 class="site-title">Lộc Lương</h1>
+    <nav class="minimal-nav">
+      <a href="/">Home</a>
+      <a href="/viewBlogs">Research</a>
+      <a href="/randomThoughts">Random Thoughts</a>
+    </nav>
+  </header>
+
+  <main>
+    <ul class="blogListOL">
       {{range .}}
         <li class="blogList">
           <div class="blogInfo">
-            <a class="blogListLink" href="/blog/{{.URLTitle}}">
-                {{.Title}}
-            </a>
-            <time>
-                {{.Date.Format "Jan 02, 2006"}}
-            </time>
-            <ul class="tagList">
+            <time>{{.Date.Format "02 Jan, 2006"}}</time>
+            <div>
+              <a class="blogListLink" href="/blog/{{.URLTitle}}">{{.Title}}</a>
+              <ul class="tagList">
                 {{range $element := .Tags}}
-                  <li class="tag">
-                      {{$element}}
-                  </li>
+                  <li class="tag">{{$element}}</li>
                 {{end}}
-            </ul>
+              </ul>
+            </div>
           </div>
         </li>
       {{end}}
-  </ol>
-</main>
-{{template "footer.gohtml"}}
+    </ul>
+  </main>
+
+  {{template "footer.gohtml"}}
+</div>
+
 </body>
 </html>

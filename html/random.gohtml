@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 {{template "head.gohtml"}}
+
 <body>
-{{template "navBar.gohtml"}}
-<main>
-  <ol class="randomListOL">
+
+<div class="minimal-container">
+  <header class="minimal-header">
+    <h1 class="site-title">Lộc Lương</h1>
+    <nav class="minimal-nav">
+      <a href="/">Home</a>
+      <a href="/viewBlogs">Research</a>
+      <a href="/randomThoughts">Random Thoughts</a>
+    </nav>
+  </header>
+
+  <main>
+    <ul class="randomListOL">
       {{range .}}
         <li class="randomList">
-
           <div class="randomInfo">
-            <a class="blogListLink" href=/random/{{.URLTitle}}>
-                {{.Title}}
-                <time>
-                {{.Date.Format "Jan 02, 2006"}}
-            </time>
-            </a>
-            
+            <time>{{.Date.Format "02 Jan, 2006"}}</time>
+            <a href="/random/{{.URLTitle}}">{{.Title}}</a>
           </div>
-
         </li>
       {{end}}
-  </ol>
-</main>
-{{template "footer.gohtml"}}
+    </ul>
+  </main>
+
+  {{template "footer.gohtml"}}
+</div>
+
 </body>
 </html>
