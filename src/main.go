@@ -443,8 +443,8 @@ func NewConfig() ServerConfig {
 		HTTPWriteTimeout: defaulHTTPtWriteTimeout,
 		CSSDir:           defaultCSSDir,
 		HTMLDir:          defaultHTMLDir,
-		PostsDir:         "public/posts",
-		EventsDir:        "public/events",
+		PostsDir:         "public/research",
+		EventsDir:        "public/randomthoughts",
 	}
 }
 
