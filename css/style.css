@@ -71,6 +71,28 @@ body {
     line-height: 1.7;
 }
 
+.bio-intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.bio-list {
+    list-style: none;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.bio-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.bio-list li::before {
+    content: "• ";
+    margin-right: 0.5rem;
+}
+
 /* Links */
 a {
     color: var(--link-color);
