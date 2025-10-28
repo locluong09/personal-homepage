@@ -1,23 +1,25 @@
 :root {
-    --link-color: #67bcb4;
-    --bg-color: white;
+    --link-color: #2c3e50;
+    --link-hover: #555;
+    --bg-color: #fafafa;
     --block-bg-color: #ffffff;
-    --tag-bg-color: #ffd1d8;
-    --highlight-color: #f3947c;
-    --text-color: #174f54;
+    --tag-bg-color: #e8e8e8;
+    --text-color: #333;
+    --text-light: #666;
+    --border-color: #ddd;
 
-    --h1-font: 'Courier New', sans-serif;
-    --body-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --h1-font: 'Courier New', monospace;
+    --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-    --heading-font-size: 2.4rem;
-    --h1-font-size: 4.8rem;
+    --heading-font-size: 2rem;
+    --h1-font-size: 3.5rem;
     --font-size: 1.6rem;
 
-    --max-main-width: 85rem;
+    --max-main-width: 75rem;
 }
 
 html {
-    font-size: 80%;
+    font-size: 62.5%;
     font-family: var(--body-font);
     color: var(--text-color);
     background: var(--bg-color);
@@ -27,34 +29,41 @@ body {
     margin: 0;
     overflow-y: scroll;
     font-size: var(--font-size);
+    line-height: 1.6;
 }
 
 main {
     min-height: calc(100vh - 280px);
     max-width: var(--max-main-width);
     padding: 0 2rem;
-    margin: 2rem auto;
+    margin: 4rem auto;
 }
 
 h2 {
     text-align: center;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: 3rem;
 }
 
 time {
-    color: var(--highlight-color);
-    font-size: var(--font-size);
+    color: var(--text-light);
+    font-size: 1.4rem;
 }
 
 a {
     color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: var(--highlight-color);
+    color: var(--link-hover);
 }
 
 p {
-    line-height: calc(var(--font-size) * var(--line-height-multiplier));
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
 }
 
 p img {
@@ -62,48 +71,64 @@ p img {
     margin: 0 auto;
     max-width: 100%;
     height: auto;
-    width: auto
+    width: auto;
 }
 
 
-/*Header!*/
+/* Header */
 
-header{
-    background-color:#fff;
-    font-family:"Raleway", Helvetica, sans-serif;
-    margin:1rem 1rem 1rem 1rem;
-  }
+header {
+    background-color: transparent;
+    font-family: var(--body-font);
+    margin: 2rem 1rem 1rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
 .container {
-    display:flex;
-    justify-content:space-between;
-    align-items:center; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-main-width);
+    margin: 0 auto;
 }
-#logo{
-    border:3px solid;
-    padding:0 10px;
+
+#logo {
+    border: 2px solid var(--text-color);
+    padding: 0 10px;
     text-align: center;
 }
-#navbar li{
-    display:inline-block;
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
-#navbar a{
-    text-decoration:none;
-    font-size:18px;
-    padding-right:15px;
-    padding: 0 2rem;
-    font-family: var(--h1-font);
-    font-size: calc(var(--font-size) * 1.5);
-    font-weight: bolder;
-    text-transform: lowercase;
+
+#navbar li {
+    display: inline-block;
+}
+
+#navbar a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    font-family: var(--body-font);
+    font-weight: 400;
+    color: var(--text-color);
+    transition: color 0.2s ease;
+}
+
+#navbar a:hover {
+    color: var(--link-hover);
 }
 
 .mainHeading {
-    margin: calc(1.2rem * var(--line-height-multiplier)) 0;
+    margin: 0;
     font-family: var(--h1-font);
     font-size: var(--h1-font-size);
-    letter-spacing: 1rem;
-    font-weight: bolder;
-    text-transform: capitalize;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
     text-align: center;
 }
 
@@ -113,27 +138,50 @@ header{
 }
 
 
-/*Random Thoughts page */
+/* Home Page */
+
+#homeDescription {
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#homeDescription p {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+
+/* Random Thoughts page */
+
 ol {
     display: table;
     margin: 0 auto;
 }
+
 .randomListOL {
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: center;
     padding: 0;
+    list-style: none;
 }
 
 .randomList {
     text-decoration: none;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 1.5rem 0;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     background: var(--block-bg-color);
-    height: fit-content;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease;
+}
+
+.randomList:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .randomInfo {
@@ -145,20 +193,27 @@ ol {
     margin: 0.5rem 0;
 }
 
-/*Blogs*/
+
+/* Blogs */
 
 .blogList {
     text-decoration: none;
-    margin: 1rem 0;
-    padding: 1rem;
+    margin: 1.5rem 0;
+    padding: 2rem;
     display: flex;
     background: var(--block-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease;
+}
+
+.blogList:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .blogInfo {
     display: flex;
     flex-direction: column;
-    /* margin-left: 3rem; */
 }
 
 .blogInfo > * {
@@ -167,13 +222,19 @@ ol {
 
 .blogListLink {
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     color: var(--text-color);
     font-size: var(--heading-font-size);
+    transition: color 0.2s ease;
+}
+
+.blogListLink:hover {
+    color: var(--link-hover);
 }
 
 .blogListOL {
-    padding: 0
+    padding: 0;
+    list-style: none;
 }
 
 
@@ -181,28 +242,35 @@ ol {
     display: flex;
     flex-direction: row;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 .tag {
     background: var(--tag-bg-color);
     margin-right: 0.8rem;
-    text-transform: capitalize;
-    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: lowercase;
+    border-radius: 3px;
     list-style-type: none;
-    padding: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.3rem;
+    color: var(--text-light);
 }
 
 .tag::before {
     content: "#";
 }
 
-/*Footer*/
+
+/* Footer */
 
 footer {
     text-align: center;
     width: 100%;
-    margin: 3rem auto;
-    color: var(--link-color);
+    margin: 5rem auto 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
 }
 
 footer p {
@@ -213,24 +281,54 @@ footer a {
     text-decoration: none;
 }
 
+.socialMediaLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
 .socialMediaLinks a {
-    margin: 0 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.socialMediaLinks a:hover {
+    transform: translateY(-2px);
 }
 
 .githubIcon:hover {
-    fill: black;
+    fill: #333;
 }
 
-
 .linkedInIcon:hover {
-    fill: #0e76a8;
+    fill: #0077b5;
 }
 
 footer a svg {
-    fill: var(--link-color);
+    fill: var(--text-color);
     height: 2.4rem;
     width: 2.4rem;
 }
 
 
+/* Responsive */
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .mainHeading {
+        font-size: 2.8rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    #navbar a {
+        padding: 0 1rem;
+        font-size: 1.4rem;
+    }
+    
+    #homeDescription p {
+        font-size: 1.6rem;
+    }
+}
