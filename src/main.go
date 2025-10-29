@@ -172,7 +172,7 @@ func (s *BlogHandler) ViewPost(w http.ResponseWriter, request *http.Request) {
 		return
 	}
 
-	err = s.template.ExecuteTemplate(w, "locluong.gohtml", post)
+	err = s.template.ExecuteTemplate(w, "single-post.gohtml", post)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
