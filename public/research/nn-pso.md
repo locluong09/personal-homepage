@@ -4,13 +4,13 @@ pair-programming-rafiki.png
 neural networks, PSO, optimization
 -----
 
-## 1. Introduction
+##1. Introduction
 
 History matching is one of the most important tasks in reservoir engineering and is defined as the process of finding an appropriate set of parameters which best represents dynamical behavior of an oil and gas system. History matching is often an ill-posed problem, which means there is no unique solution to the problem. Due to the complexity and computational expense of reservoir simulation runs, there is an alternative approach of coupling a neural networks and particle swarm optimization to solve the history matching problem.
 
 Here, we are about to design a machine learning model (specifically a neural net) to perform the history matching of an black oil reservoir. The oil field has been producing for 50 years.  Historical data contains all of the information of dynamical simulation and production. There are a total of 187 simulation runs with certain output, and 15 reservoir properties within the corresponding ranges.
 
-## 2. Overview of a neural network
+##2. Overview of a neural network
 <!-- ![Neural network](https://raw.githubusercontent.com/locluong09/petroleum-production-prediction/refs/heads/master/Output%20from%20LSTM_Kaggle/F1/Pic/F1_gas.png "Neural net") -->
 ![Neural network](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/nn-pso/nn.png "Neural net")
 In a typical multi-layer neural networks, beside the input and output layers, there are several hidden layers in the middle. Figure above is an example of fully connect multi-layer neural network with three hidden layers. Let denote the output of each unit as $a$, therefore the output of a layer $(l)$ is $\mathbf{a}^{(l)}$. In a neural network of $L$ layers, there are corresponding $L$ matrices of coefficients ($\mathbf{W}^{(l)} \in \mathbb{R}^{d^{(l)}\times d^{(l+1)}}$) that represent connection between layer $l-1$ and layer $l$. Note that layer $0$ is the input layers. Bias of layer $l$ is usually denoted by $\mathbf{b}^{(l)} \in \mathbb{R}^{d^{(l)}}$. We then can define $\mathbf{\theta}^{(l)} = [\mathbf{b}^{(l)}, \mathbf{W}^{(l)}]$ as the weight matrix of layer $(l)$. The output from each layer can be written as:
@@ -39,13 +39,13 @@ $$
 \mathbf{\theta} = \mathbf{\theta} - \eta\nabla J(\mathbf{\theta})
 $$
 
-## 3. Particle Swarm Optimization (PSO)
+##3. Particle Swarm Optimization (PSO)
 
 The idea behind PSO algorithm is particles will communicate the information they find with others, and update their velocity based on the local best (pbest) and global best particle (gbest). The swarm will update best result as when the new global best is found, and each particle tend to move toward the personal best and global best.
 
 Particle Swarm Optimization (PSO) is a population based stochastic optimization technique that inspired by social behavior of bird flocking or fish schooling. PSO is the global optimizer which aims to find global minima or maxima of an objective function. The general update rule for PSO algorithm is followed:
 
-#### PSO:
+####PSO:
 1. Evaluate the fitness
 2. Calculate the velocity
 
@@ -65,7 +65,7 @@ The hyper-parameters used in PSO are:
     - $c_2$ is the social weight, represents the impact of global best on individual particle's movement
     - $r_1$, $r\_{2}$ are two random components, represent the randomness of the process of updating particle's velocity. These two also represent the stochastic search of direction.
 
-## 4. Results
+##4. Results
 
 
 You can see this [GitHub repository](https://github.com/locluong09/PSO-NN) for some results as well as detailed implementation.
