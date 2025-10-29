@@ -53,9 +53,14 @@ func getPost(r io.Reader) (Post, error) {
 		return Post{}, err
 	}
 	post.Date = date
-	post.Picture = readLine()
-	post.Tags = strings.Split(readLine(), ",")
-	readLine()
+	// post.Picture = readLine()
+	tagLine := readLine()
+	tags := strings.Split(tagLine, ",")
+	for i, tag := range tags {
+		tags[i] = strings.TrimSpace(tag) // Remove spaces
+	}
+	post.Tags = tags
+	readLine() // skip the separator line -----
 
 	body := bytes.Buffer{}
 	for scanner.Scan() {

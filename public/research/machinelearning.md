@@ -1,15 +1,14 @@
 Combining Convolutional and Recurrent Neural Networks in Generative Adversarial Network
 2022-Jun-20
-golangPic1.png
 convolution neural networks, recurrent neural networks, GAN
 -----
-##Summary 
+## Summary 
 
 The application of artificial intelligence recently has gained a great deal of attention in the oil and gas industry and appears in various studies in petroleum engineering. With the usage of machine learning and deep learning algorithms, reservoir behaviors can be predicted and interpreted from the available historical data without relying on complicated physical models. In this study, the convolutional and recurrent neural networks will be combined into the generative adversarial network (GAN) architecture to predict the oil production rate. We first use machine learning models based on XGBoost algorithms to extract the important features for further training phase of the GAN model, then we develop the deep learning model based on GAN architecture, and present the step by step workflow to train the model and predict future oil production rate. 
 
 In GAN architecture, the long short-term memory (LSTM) network will be employed as generator and the convolutional neural network (CNN) will be implemented as discriminator. A new feature will be generated from the LSTM network, then incorporated with previous training data to feed in the CNN discriminator and produce the predicted oil rate. By using the mean square error loss function to minimize the discrepancy between real and predicted values, the LSTM and CNN models then will be trained simultaneously on the training data, evaluated on the validation data, and proved the generalization capability on the test data. The results of four oil wells from field cases have demonstrated the applicability of the model to simulate and predict the behavior of oil well performance.
 
-##Model
+## Model
 
 Originally, GAN is proposed by Ian Goodfellow et al. in 2014, the model is trained to learn the statistical pattern of input data wherein the model can be used to generate the output that is similar to the input and widely applied in image generation, video prediction, and voice generation. There are two fundamental components of the generative adversarial network (GAN) which are generator network and discriminator network. In this study, we will slightly modify the GAN architecture to satisfy the regression task of predicting the oil production rate. Figure below shows the development of the GAN model in this study. The GAN model consists of two different networks: LSTM in generator and CNN in discriminator.
 ![GAN](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/gan/gan.png "Neural net")

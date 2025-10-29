@@ -1,6 +1,5 @@
 Multiphase flow simulation
 2020-Feb-27
-golangPic1.png
 multiphase flow, reservoir simulation, oil and gas
 -----
 

@@ -1,12 +1,11 @@
 Groundwater modeling and solute transport in an unconfined aquifer
 2023-Mar-10
-golangPic1.png
 seawater entrapment, solute transport, groundwater modeling
 -----
 
 We develop a control volume finite element method (CVFEM) to simulate groundwater flow, solute transport, and groundwater age in an aquifer under prograding delta or evolving grid domain. We then hypothesize that onshore saline groundwater within unconfined aquifer in delta system may have resulted from rapid propagation of shoreline during Holocence which was around 12k years ago. Numerical solutions to groundwater age equation are obtained using triangle elements with evolving grids of the domain. Sensitivity analyses are performed using a range of model settings to extract the key parameters that control the groundwater age, and salinity concentration. Results show that groundwater ages are largely affected by two confining units in Bengal delta. These age distributions are young in recharge areas , and old near the shore lines.
 
-##Summary
+## Summary
 
 The fundamental equation that governs the groundwater flow in an aquifer for incompressible fluid is described as follows:
 
@@ -52,7 +51,7 @@ and $\alpha_L(L)$ is longitudinal dispersivity, $\alpha_T(L)$ is transverse disp
 
 To simplify the domain as much as possible, we only depict the Bengal delta with a very coarse and simple conceptual 2D domain (figure above). The simulation domain of this model is in two dimensions (length and depth), and the top domain evolves over time. The model is represented by triangular mesh using a built-in function in MATLAB. We employed a straightforward mesh technique by joining x and z coordinates, then use a Delaunay triangulation from the points in a matrix P that contain x and z coordinates. The recharged area is located at the uppermost portion of the domain and discharged area is located at basement, which is at the same level as the sea level. We imposed no-flow boundaries for left, right, and bottom edges of the domain. Above sea level, we set salinity concentration to be zero. 
 
-##Results
+## Results
 
 Here are final results from running simulation for ~ 16000 years.
 
