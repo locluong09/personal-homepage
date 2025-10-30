@@ -1,3 +1,3 @@
-# Welcome to my personal homepage — a place for my research projects and a few random thoughts along the way.
+## Just a personal homepage — for my research projects and a few random thoughts.
 
 A while ago, I found a nice tutorial about Go for website which is easy to follow. So I decided to use Go to learn a bit about web development. This site is built entirely with Go: a pure Go backend and native GoHTML for the frontend, styled minimally. I prefer keeping things simple, so the design follows a minimalist approach. The site is deployed on Fly.io, which integrates smoothly with GitHub for automatic updates whenever I push new changes. MathJax is used for displaying equations, and Google Analytics helps track site activity.
