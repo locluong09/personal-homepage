@@ -305,6 +305,13 @@ a:hover {
     margin: 2rem auto;
 }
 
+.post-article img[src$=".gif"] {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
 .post-article blockquote {
     border-left: 4px solid var(--border-color);
     padding-left: 1.5rem;
