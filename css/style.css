@@ -305,11 +305,17 @@ a:hover {
     margin: 2rem auto;
 }
 
-.post-article img[src$=".gif"] {
+{{/* .post-article img[src$=".gif"] {
     max-width: none;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
+} */}}
+.post-article img[src$=".gif"] {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
 }
 
 .post-article blockquote {
