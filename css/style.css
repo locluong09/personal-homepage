@@ -32,6 +32,8 @@ body {
 .minimal-container {
     max-width: 80rem;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -216,6 +218,8 @@ a:hover {
     max-width: 70rem;
     margin: 0 auto;
     padding: 2rem 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .post-title {
@@ -304,9 +308,11 @@ a:hover {
 
 .post-article img {
     max-width: 100%;
+    width: auto;
     height: auto;
     display: block;
     margin: 2rem auto;
+    box-sizing: border-box;
 }
 
 .post-article img[src$=".gif"] {
@@ -434,6 +440,8 @@ footer a:hover svg {
 main {
     max-width: 80rem;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 h2 {
