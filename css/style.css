@@ -235,6 +235,10 @@ a:hover {
 .post-article {
     font-size: 1.7rem;
     line-height: 1.8;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .post-article h1,
