@@ -315,14 +315,14 @@ a:hover {
     box-sizing: border-box;
 }
 
-.post-article img[src$=".gif"] {
+{{/* .post-article img[src$=".gif"] {
     max-width: 100%;
     width: 100%;
     height: auto;
     display: block;
     margin: 2rem auto;
     box-sizing: border-box;
-}
+} */}}
 
 .post-article blockquote {
     border-left: 4px solid var(--border-color);
