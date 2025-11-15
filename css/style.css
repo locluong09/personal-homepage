@@ -32,6 +32,8 @@ body {
 .minimal-container {
     max-width: 80rem;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -69,6 +71,28 @@ body {
 .bio {
     margin-bottom: 1.5rem;
     line-height: 1.7;
+}
+
+.bio-intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+.bio-list {
+    list-style: none;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.bio-list li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.bio-list li::before {
+    content: "• ";
+    margin-right: 0.5rem;
 }
 
 /* Links */
@@ -194,6 +218,8 @@ a:hover {
     max-width: 70rem;
     margin: 0 auto;
     padding: 2rem 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .post-title {
@@ -213,6 +239,10 @@ a:hover {
 .post-article {
     font-size: 1.7rem;
     line-height: 1.8;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .post-article h1,
@@ -243,6 +273,10 @@ a:hover {
 
 .post-article p {
     margin-bottom: 1.5rem;
+    max-width: 100%;
+    width: 100%; /* Add this */
+    overflow: hidden; /* Add this */
+    box-sizing: border-box;
 }
 
 .post-article ul,
@@ -278,9 +312,20 @@ a:hover {
 
 .post-article img {
     max-width: 100%;
+    width: auto;
     height: auto;
     display: block;
     margin: 2rem auto;
+    box-sizing: border-box;
+}
+
+.post-article img[src$=".gif"] {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    box-sizing: border-box;
 }
 
 .post-article blockquote {
@@ -399,6 +444,8 @@ footer a:hover svg {
 main {
     max-width: 80rem;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 h2 {
@@ -413,4 +460,6 @@ time {
 
 p {
     line-height: 1.7;
+    max-width: 100%;
+    box-sizing: border-box;
 }
