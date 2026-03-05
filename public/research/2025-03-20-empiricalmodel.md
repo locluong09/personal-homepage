@@ -8,15 +8,15 @@ Using seismic methods to track bedload transport is an active field of research 
 In this study, we derive an empirical equation to simplify the relationship between seismic power spectral density (PSD) and bedload flux based on the physics-based model. We then hypothesize that adding seismic PSD as a new predictor improves hydraulics-based equation in terms of predicting bedload flux. We then test this newly derived empirical equation that combines the PSD and excess shear stress to predict bedload flux in a sandy-gravel-bed alluvial river. The generic form of the seismic-hydraulic equation is:
 
 $$
-q_b = a(P/P_{re})^{b}(\tau_{\ast} - \tau_{cr\ast})^{c}
+q_b = a(\frac{P}{P_{re}})^{b}(\tau_{\ast} - \tau_{cr\ast})^{c}
 $$
 
-where $q_{b} is non-dimensional bedload flux, $P$ is observed seismic power spectral density (PSD), $P_{re}$ is a reference seismic PSD at a given shear stress, $\tau_{\ast} is Shield parameter, and $\tau_{cr\ast}$ is critical Shield required to initiate the movement of sediment particles.
+where $q_{b}$ is non-dimensional bedload flux, $P$ is observed seismic power spectral density (PSD), $P_{re}$ is a reference seismic PSD at a given shear stress, $\tau_{\ast}$ is Shield parameter, and $\tau_{cr\ast}$ is critical Shield required to initiate the movement of sediment particles.
 
 After fitting this above equation with our Pinos field data, we obtained the fitted equation as follows:
 
 $$
-q_b = 5.2(P/P_{re})^{b}(0.25} - \tau_{cr\ast})^{1.36}
+q_b = 5.2(\frac{P}{P_{re}})^{b}(0.25} - \tau_{cr\ast})^{1.36}
 $$
 
 Our proposed equation predicts bedload flux better than either using PSD or shear stress alone. We also validate this equation with independent flow events and demonstrate that the newly derived empirical equation could potentially improve the predictive capability of bedload flux.
