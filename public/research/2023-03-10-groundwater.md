@@ -3,7 +3,13 @@ Groundwater modeling and solute transport in an unconfined aquifer
 seawater entrapment, solute transport, groundwater modeling
 -----
 
-We develop a control volume finite element method (CVFEM) to simulate groundwater flow, solute transport, and groundwater age in an aquifer under prograding delta or evolving grid domain. We then hypothesize that onshore saline groundwater within unconfined aquifer in delta system may have resulted from rapid propagation of shoreline during Holocence which was around 12k years ago. Numerical solutions to groundwater age equation are obtained using triangle elements with evolving grids of the domain. Sensitivity analyses are performed using a range of model settings to extract the key parameters that control the groundwater age, and salinity concentration. Results show that groundwater ages are largely affected by two confining units in Bengal delta. These age distributions are young in recharge areas , and old near the shore lines.
+Beside my main PhD focus on environmental seismology and sediment transport, I also had a chance to contribute to the implementation the finite volume method (FVM). In this note, I wanted to summary the underlying concepts of the method, along with its algorithmic structure and implementation, and present results from simulations in which the computational grid evolves dynamically over time.
+
+The hypothesis that lead to this implementation is that onshore saline groundwater within unconfined aquifer in delta system may have resulted from rapid propagation of shoreline during Holocence which was around 12k years ago.
+
+To test this hypothesis, we develop a control volume finite element method (CVFEM) to simulate groundwater flow, solute transport, and groundwater age in an aquifer subject to a prograding delta, represented as an evolving computational domain. In this framework, all governing equations are solved using triangular elements on a dynamically evolving mesh.
+
+We also ran a series of sensitivity analyses using a range of model configurations to indentify the key parameters that control the groundwater age and salinity distribution. Our results show that groundwater age is strongly influenced by the presence of two confining units in the Bengal Delta. The mechanism is that, during earlier stages of delta evolution, when the confining unit was submerged beneath seawater, saline water infiltrated and became trapped within the formation. As the shoreline prograded, this saline groundwater was preserved inland. Over time, the confining unit can release saline water through diffusion, which is then advected by groundwater flow.
 
 ## Summary
 
@@ -59,10 +65,13 @@ Here are final results from running simulation for ~ 16000 years.
 ![concentration](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/concentration.png "GW")
 ![age](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/age.png "GW")
 
-Below is a gif showing concentration evolves over time:
+Age distributions are young in recharge areas , and old near the shore lines. Below is a gif showing concentration evolves over time:
 <!-- <img src="animation.gif" width="100%" /> -->
 <!-- <img src="https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/simulation.gif" width="800px" /> -->
 
 ![concentration](https://raw.githubusercontent.com/locluong09/blog/refs/heads/main/public/figures/simulation/simulation.gif)
 
 You can see this [GitHub repo](https://github.com/locluong09/Computational-Modeling) for some results as well as detailed implementation.
+
+## References
+[1] Voller, V.R., Sazeed, N., Luong, L., Camille, A., Steckler, M., Leary, K. and Person, M., 2025. Onshore entrapment of seawater in coastal aquifers by rapid coastline progradation. Water Resources Research, 61(8), p.e2024WR038157.
