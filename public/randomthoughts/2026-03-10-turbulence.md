@@ -1,4 +1,4 @@
-Derivation of Navier-Stokes equation
+Navier-Stokes equation
 2026-Mar-10
 N-S, fluid mechanics
 -----

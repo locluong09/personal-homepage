@@ -1,15 +1,15 @@
 Coupling neural networks and particle swarm optimization
 2021-Aug-08
-neural networks, PSO, optimization
+neural networks, particle swarm optimization
 -----
 
 In retrospect, I recall that my math professor at my Vietnamese college introduced me "neural network" around late 2016 or early 2017. I'm pretty sure that at that time I didn't know any thing about artificial neural network (ANN), or machine learning (ML), or deep learning (DL). I got a stack of papers printed out to read some introduction about ANN, and I was so excited that I wish I'd been introduced to it sooner. I spent a few days and nights (maybe even more I couldn't remember) just to get a good understanding behind it, including the maths (e.g., algebra, optimization) and codes. It is interesting that ANN is able to approximate any continuous, smooth function if it has enough neurons. And this is already rigorously proved as the universal approximation theorem.
 
 When I did my Master in petroleum at New Mexico Tech, I started to accumulate formal language of optimization methods, and I was wondering if I could do a pet project combining neural nets with a global optimization algorithm to solve the inverse problem.
 
-History matching (or formally known as inverse problem) is one of the most important problem in reservoir engineering. Technically, in forward problem we apply a simulator (or a black box) to model a physical system of interest: parameter ($\theta$) $\rightarrow$ model $\rightarrow$ output (simulated data). In contrast, we do the backward for the inverse problem, we compared real-world observation data with simulated data to figure out a set of parameters that best represents underlying physical model. In the context of petroleum engineering, this is defined as the process of finding an appropriate set of parameters which can reasonably (ideally best) reproduce the dynamical behavior of a reservoir system (multiphase flow of oil, gas, and water).
+History matching (or formally known as inverse problem) is one of the most important problem in reservoir engineering. Technically, in forward problem we apply a simulator (or a black box) to model a physical system of interest: parameters ($\theta$) $\rightarrow$ model $\rightarrow$ output (simulated data). In contrast, we do the backward for the inverse problem, we compared real-world observation data with simulated data to figure out a set of parameters that best represents underlying physical model: data (observations) $\rightarrow$ model $\rightarrow$ parameters ($\theta$). In the context of petroleum engineering, this is defined as the process of finding an appropriate set of parameters which can reasonably (ideally best) reproduce the dynamical behavior of a reservoir system (multiphase flow of oil, gas, and water).
 
-Inverse problem is often an ill-posed problem, meaning that there is no unique solution to the problem. Strictly speaking, in a well-pose problem, there need to have solution, and the solution need to be unique, as well as stable. Fail of any one of these three conditions, we can call the problem ill-posed. In practice, instability often manifests as numerical ill-conditioning where a small perturbation or err in the input can produce a large errors in the outcome.
+Inverse problem is often an ill-posed problem, meaning that there is no unique solution to the problem. Strictly speaking, in a well-pose problem, there needs to be a solution, and the solution need to be unique, as well as stable. Fail of any one of these three conditions, we can call the problem ill-posed. In practice, instability often manifests as numerical ill-conditioning where a small perturbation or err in the input can produce a large errors in the outcome.
 
 On the other hand, simulating a multiphase flow problem is often computationally expensive. Even in some cases, engineers prefer simpler analytical methods, such as decline curve analysis or material balance, to study reservoir behavior or estimate reserve. Due to the complexity and computational overhead of simulation runs, we'd want alternative approaches. One such approach is to couple a neural networks and particle swarm optimization to solve the history matching problem.
 
@@ -53,34 +53,35 @@ PSO is a nature-inspired stochastic optimization algorithm that mimic the flocki
 <section>
   <h4>PSO Algorithm</h4>
 
-  <h5>Fitness Evaluation</h5>
-  <p>The fitness function is problem-dependent. Common choices include:</p>
+  <ol>
+    <li>
+      <strong>Fitness Evaluation</strong>
+      <p>The fitness function is problem-dependent. Common choices include:</p>
+      
+      <p><em>Mean Squared Error (MSE)</em></p>
+      $$J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2$$
 
-  <p><em>Mean Squared Error (MSE)</em></p>
-  $$J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2$$
+      <p><em>Root Mean Squared Error (RMSE)</em></p>
+      $$J(\theta) = \sqrt{\frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2}$$
 
-  <p><em>Root Mean Squared Error (RMSE)</em></p>
-  $$J(\theta) = \sqrt{\frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2}$$
+      <p><em>Mean Absolute Error (MAE)</em></p>
+      $$J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left|y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right|$$
+    </li>
 
-  <p><em>Mean Absolute Error (MAE)</em></p>
-  $$J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left|y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right|$$
+    <li>
+      <strong>Velocity Update</strong>
+      $$v_i^{t+1} = w v_i^{t} + c_1 r_1 (pbest_i^{t} - x_i^{t}) + c_2 r_2 (gbest^{t} - x_i^{t})$$
+    </li>
 
-  <h5>Velocity Update</h5>
-  $$v_i^{t+1} = w v_i^{t} + c_1 r_1 (pbest_i^{t} - x_i^{t}) + c_2 r_2 (gbest^{t} - x_i^{t})$$
-
-  <h5>Position Update</h5>
-  $$x_i^{t+1} = x_i^{t} + v_i^{t+1}$$
-
-  <!-- <h5>Hyperparameters</h5>
-  <ul>
-    <li>\( w \): inertia weight (typically slightly less than 1)</li>
-    <li>\( c_1 \): cognitive coefficient — influence of personal best</li>
-    <li>\( c_2 \): social coefficient — influence of global best</li>
-    <li>\( r_1, r_2 \): random values in \([0,1]\), introducing stochasticity</li>
-  </ul> -->
+    <li>
+      <strong>Position Update</strong>
+      $$x_i^{t+1} = x_i^{t} + v_i^{t+1}$$
+    </li>
+  </ol>
 </section>
 
 Hyperparameters:
+
 - \( w \): inertia weight (typically slightly less than 1)  
 - \( c_1 \): cognitive coefficient — influence of personal best  
 - \( c_2 \): social coefficient — influence of global best  
