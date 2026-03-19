@@ -38,7 +38,7 @@ $$
 J(\mathbf{\theta}) = \frac{1}{N}\sum_{i=1}^{N}||{y_i - \hat{y}_i}||_2^{2}
 $$
 
-As I don't use gradient descent as our optimizer, just I'm giving a few lines about this algorithm here. In training neural network or machine learning model, gradient descent (GD) and its variants are by far the most popular techniques. Gradient descent is an algorithm used to optimize the objective function $J(\mathbf{\theta})$, with respect to the parameter $\mathbf{\theta} \in \mathbb{R}^d$, by gradually updating the parameter $\mathbf{\theta}$ in the opposite direction to the gradient of the objective function. The learning rate $\eta$ determines the size of each backward jump of $\mathbf{\theta}$. The advantages of GD are the ease of implementation and low memory cost, while the drawback is the convergence time or local minima. In machine learning or deep learning area, we use this algorithm to update model weights $\mathbf{\theta}$. The general definition of gradient descent algorithm is followed by:
+As I don't use gradient descent for the optimizer, I'm just giving a few lines about this algorithm here. In training neural networks or machine learning models, gradient descent (GD) and its variants are by far the most popular techniques. Gradient descent is an algorithm used to optimize the objective function $J(\mathbf{\theta})$, with respect to the parameter $\mathbf{\theta} \in \mathbb{R}^d$, by gradually updating the parameter $\mathbf{\theta}$ in the opposite direction to the gradient of the objective function. The learning rate $\eta$ determines the size of each backward jump of $\mathbf{\theta}$. The advantages of GD are the ease of implementation and low memory cost, while the drawback is the convergence time or local minima. In machine learning or deep learning area, we use this algorithm to update model weights $\mathbf{\theta}$. The general definition of gradient descent algorithm is followed by:
 
 $$
 \mathbf{\theta} = \mathbf{\theta} - \eta\nabla J(\mathbf{\theta})
@@ -50,74 +50,79 @@ PSO is a nature-inspired stochastic optimization algorithm that mimic the flocki
 
 #### PSO
 
-**Evaluate the fitness**
+<section>
+  <h4>PSO Algorithm</h4>
 
-In Particle Swarm Optimization (PSO), the fitness function is problem-dependent. Common choices include:
+  <h5>Fitness Evaluation</h5>
+  <p>The fitness function is problem-dependent. Common choices include:</p>
 
-**Mean Squared Error (MSE)**  
-$$
-J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2
-$$
+  <p><em>Mean Squared Error (MSE)</em></p>
+  $$J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2$$
 
-**Root Mean Squared Error (RMSE)**  
-$$
-J(\theta) = \sqrt{\frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2}
-$$
+  <p><em>Root Mean Squared Error (RMSE)</em></p>
+  $$J(\theta) = \sqrt{\frac{1}{N} \sum_{t=1}^{N} \left(y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right)^2}$$
 
-**Mean Absolute Error (MAE)**  
-$$
-J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left|y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right|
-$$
+  <p><em>Mean Absolute Error (MAE)</em></p>
+  $$J(\theta) = \frac{1}{N} \sum_{t=1}^{N} \left|y_t^{\text{true}} - y_t^{\text{pred}}(\theta)\right|$$
 
----
+  <h5>Velocity Update</h5>
+  $$v_i^{t+1} = w v_i^{t} + c_1 r_1 (pbest_i^{t} - x_i^{t}) + c_2 r_2 (gbest^{t} - x_i^{t})$$
 
-**Velocity update**
+  <h5>Position Update</h5>
+  $$x_i^{t+1} = x_i^{t} + v_i^{t+1}$$
 
-$$
-v_i^{t+1} = w v_i^{t} + c_1 r_1 (pbest_i^{t} - x_i^{t}) + c_2 r_2 (gbest^{t} - x_i^{t})
-$$
+  <!-- <h5>Hyperparameters</h5>
+  <ul>
+    <li>\( w \): inertia weight (typically slightly less than 1)</li>
+    <li>\( c_1 \): cognitive coefficient — influence of personal best</li>
+    <li>\( c_2 \): social coefficient — influence of global best</li>
+    <li>\( r_1, r_2 \): random values in \([0,1]\), introducing stochasticity</li>
+  </ul> -->
+</section>
 
----
-
-**Position update**
-
-$$
-x_i^{t+1} = x_i^{t} + v_i^{t+1}
-$$
-
----
-
-**Hyperparameters in PSO**
-
+Hyperparameters:
 - \( w \): inertia weight (typically slightly less than 1)  
-- \( c_1 \): cognitive coefficient (influence of personal best)  
-- \( c_2 \): social coefficient (influence of global best)  
-- \( r_1, r_2 \): random values in \([0,1]\), introducing stochasticity  
+- \( c_1 \): cognitive coefficient — influence of personal best  
+- \( c_2 \): social coefficient — influence of global best  
+- \( r_1, r_2 \): random values in \([0,1]\), introducing stochasticity
 
----
+Below is a pseudo code in Python:
+```python
+# PSO Algorithm
+initialize particles (x_i, v_i) randomly
+for t in range(max_iter):
+    for each particle i:
+        evaluate fitness f(x_i)
+        if f(x_i) < f(pbest_i): pbest_i = x_i
+        if f(x_i) < f(gbest):   gbest   = x_i
+    for each particle i:
+        v_i = w*v_i + c1*r1*(pbest_i - x_i) + c2*r2*(gbest - x_i)
+        x_i = x_i + v_i
+return gbest
+```
 
 ## How to train a machine learning model
 
 <figure>
   <img src="https://raw.githubusercontent.com/locluong09/PSO-NN/refs/heads/main/figs/workflow.png" alt="ML workflow">
-  <figcaption> General machine learning workflow 
-(modified from <a href="https://github.com/tiepvupsu/ebookMLCB">Tiep Vu</a>).
+  <figcaption style="text-align: center; font-style: italic;">
+    General machine learning workflow 
+    (modified from <a href="https://github.com/tiepvupsu/ebookMLCB">Tiep Vu</a>).
   </figcaption>
 </figure>
 
-Almost every machine learning and deep learning algorithm follows this workflow. There are three phases in this process: training, validation, and testing.
+There are three phases in this process: training, validation, and testing. In the training phase, we need to design two blocks (green and pink), which are the feature extractor and the main algorithm. The input data represents all available information about the system. For example, for an image, it is the value of each pixel; for audio, it is the signal. In this project, the raw input may include all reservoir information such as permeability, porosity, relative permeability, bottom-hole pressure, initial state, etc.
 
-In the training phase, we need to design two blocks (green and pink), which are the feature extractor and the main algorithm. The input data is all the information we know about the system. For example, for an image, it is the value of each pixel; for audio, it is the signal. In this project, the raw input may include all reservoir information such as permeability, porosity, relative permeability, bottom-hole pressure, initial state, etc.
-
-However, the raw data is usually not in vector form, does not have the same dimensions, and often contains noise. Missing values may also be encountered. To obtain more useful and clean data, we need to design a feature extractor. After the feature extraction phase, we obtain extracted features from the raw input. These features will then be used to train the machine learning or deep learning algorithms.
+However, the raw data is usually not in vector form, does not have the same dimensions, and often contains noise. Missing values may also be encountered. Therefore, a feature extraction step is required to transform the raw data into a clean, structured, and informative representation. The extracted features are then used as inputs to train the machine learning or deep learning model.
 
 In the learning algorithm stage, the extracted features, along with (optionally) labeled outputs, are used to construct a model that captures the relationship between inputs and outputs. An important point is that when building the feature extractor and the main algorithm, we should not use any information from the test dataset. The test data must be treated as completely unseen during training.
 
-In the testing phase, for new raw input, we use the feature extractor created above to generate the corresponding testing feature vectors. Then, using these feature vectors and the trained model from the training phase, we predict the output and evaluate the performance of our model.
+In the testing phase, for new raw input, we use the feature extractor created above to generate the corresponding testing feature vectors. These features are then fed into the trained model to produce predictions. The performance of the model is evaluated by comparing these predictions with the true outputs.
 
 <figure>
   <img src="https://raw.githubusercontent.com/locluong09/PSO-NN/refs/heads/main/figs/workflow-detail.png" alt="ML workflow">
-  <figcaption> A more detailed workflow to couple neural nets and PSO.
+  <figcaption style="text-align: center; font-style: italic;">
+   A more detailed workflow to couple neural nets and PSO.
   </figcaption>
 </figure>
 
@@ -125,16 +130,16 @@ In the testing phase, for new raw input, we use the feature extractor created ab
 
 <table>
   <tr>
-    <td>
-      <figure>
-        <img src="ihttps://raw.githubusercontent.com/locluong09/PSO-NN/refs/heads/main/figs/series.png" alt="Figure 1" width="100%">
-        <figcaption>Oil production time series.</figcaption>
+    <td style="text-align: center;">
+      <figure style="margin: 0;">
+        <img src="https://raw.githubusercontent.com/locluong09/PSO-NN/refs/heads/main/figs/series.png" alt="Figure 1" width="100%">
+        <figcaption style="text-align: center; font-style: italic;">Oil production time series.</figcaption>
       </figure>
     </td>
-    <td>
-      <figure>
+    <td style="text-align: center;">
+      <figure style="margin: 0;">
         <img src="https://raw.githubusercontent.com/locluong09/PSO-NN/refs/heads/main/figs/cumulative.png" alt="Figure 2" width="100%">
-        <figcaption>Cumulative oil production.</figcaption>
+        <figcaption style="text-align: center; font-style: italic;">Cumulative oil production.</figcaption>
       </figure>
     </td>
   </tr>
