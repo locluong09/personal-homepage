@@ -22,7 +22,7 @@ $$
 This equation is written on the the Lagrangian viewpoint, where we follow this fluid element. On this description, we can put a local coordinate attached into this element to track the trajectory over time. Therefore:
 
 $$
-\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}\Big|\_{\mathbf{L} \text{fixed coordinates}} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
+\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}\bigg|\_{\mathbf{L}\;\;\text{(fixed coordinates)}} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
 $$
 
 On the left hand side is the derivative of the momentum of this fluid element, which represents a sum of all individual molecule's momentum in this fluid element; and on the right side the sum of forces acting on this element. There are two type of forces acting on fluid: body force, and surface force.
@@ -33,22 +33,10 @@ $$
 \mathbf{u}_L(\mathbf{x},t) = \mathbf{u}_E(\mathbf{X}(\mathbf{x},t), t) = \mathbf{u}
 $$
 
-This means we should be able to establish a vector field $\mathbf{u}$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the chain rule as shown below:
+This means we should be able to establish a vector field $\mathbf{u}$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the Reynolds transport theorem (RTT) to a time-dependent fluid element as shown below:
 
 $$
-\begin{aligned}
-a &= b + c \\
-  &= d + e
-\end{aligned}
+\frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}_E) dV + \int\_{S(t)}\rho \mathbf{u}_E(\mathbf{u}_E\cdot\hat{\mathbf{n}}) dS
 $$
 
-$$
-\begin{aligned}
-\frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_E dV\Big) = \int_{V}\frac{d}{dt}(\rho \mathbf{u}_E dV)
-\end{aligned}
-$$
-
-$$
-\int_{V}\frac{d}{dt}(\rho \mathbf{u}) dV + \int_{V}\rho \mathbf{u}\frac{d}{dt}(dV)= \int_{V}\rho\frac{d}{dt}(\mathbf{u}) dV +\int_{V}\mathbf{u}\frac{d}{dt}(\rho)dV +  \int_{V}\rho \mathbf{u}\nabla\cdot\mathbf{u}\\
-$$
 
