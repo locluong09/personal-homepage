@@ -19,15 +19,11 @@ $$
 \frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_L dV\Big) = \sum \mathbf{F}
 $$
 
-
 This equation is written on the the Lagrangian viewpoint, where we follow this fluid element. On this description, we can put a local coordinate attached into this element to track the trajectory over time. Therefore:
 
-where:
-
 $$
-\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}|\_{\mathbf{L} coordinates fixed} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
+\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}\Big|\_{\mathbf{L} \text{fixed coordinates}} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
 $$
-
 
 On the left hand side is the derivative of the momentum of this fluid element, which represents a sum of all individual molecule's momentum in this fluid element; and on the right side the sum of forces acting on this element. There are two type of forces acting on fluid: body force, and surface force.
 
@@ -37,7 +33,14 @@ $$
 \mathbf{u}_L(\mathbf{x},t) = \mathbf{u}_E(\mathbf{X}(\mathbf{x},t), t) = \mathbf{u}
 $$
 
-This means we should be able to establish a vector field $u$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the chain rule as shown below:
+This means we should be able to establish a vector field $\mathbf{u}$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the chain rule as shown below:
+
+$$
+\begin{split}
+    A &= \pi r^2 \\
+      &= \pi \times \text{radius}^2
+\end{split}
+$$
 
 $$
 \begin{split}
