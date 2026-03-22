@@ -39,7 +39,7 @@ where $\mathbf{F}(t,\mathbf{x}_0)$ is the Fourier's transform of $F(t,\mathbf{x}
 The key assumption from Tsai et al. (2012) is that impacts by sediment particle onto the riverbed are assumed to be random in time, therefore, the sum of impacts does not affect the resulting force spectrum. This can be explained using a 1D random walk analogy. For example, expected value of the distance squared is the number of steps in a 1D random walk process.
 
 $$
-P_v(f, D) = \int_{\mathbb{R}} R_D \, \left| \mathbf{u}(f, x) \right|^2 \, dx
+P_v(f, D) = \int\_{\mathbb{R}} R_D \left|\mathbf{u}(f, x)\right|^2 dx
 $$
 
 where $\mathbb{R}$ is the length of the river, $R_D$ is is the total rate of impacts per unit river length, $R_D = \frac{n_D}{t_D}$ where $n_D$ is the number of impacts (of grain $D$) per unit river length and $t_D$ is the time between impacts. [Lamb et al., 2008](https://doi.org/10.1029/2007JF000915) relate $n_D/t_D$ to:
