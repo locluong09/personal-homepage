@@ -36,10 +36,19 @@ $$
 This means we should be able to establish a vector field $\mathbf{u}$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the chain rule as shown below:
 
 $$
-\begin{align}
-\frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_E dV\Big) &= \int_{V}\frac{d}{dt}(\rho \mathbf{u}_E dV)\\
-&= \int_{V}\frac{d}{dt}(\rho \mathbf{u}) dV + \int_{V}\rho \mathbf{u}\frac{d}{dt}(dV)\\
-&= \int_{V}\rho\frac{d}{dt}(\mathbf{u}) dV +\int_{V}\mathbf{u}\frac{d}{dt}(\rho)dV +  \int_{V}\rho \mathbf{u}\nabla\cdot\mathbf{u}\\
-\end{align}
+\begin{aligned}
+a &= b + c \\
+  &= d + e
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_E dV\Big) = \int_{V}\frac{d}{dt}(\rho \mathbf{u}_E dV)
+\end{aligned}
+$$
+
+$$
+\int_{V}\frac{d}{dt}(\rho \mathbf{u}) dV + \int_{V}\rho \mathbf{u}\frac{d}{dt}(dV)= \int_{V}\rho\frac{d}{dt}(\mathbf{u}) dV +\int_{V}\mathbf{u}\frac{d}{dt}(\rho)dV +  \int_{V}\rho \mathbf{u}\nabla\cdot\mathbf{u}\\
 $$
 
