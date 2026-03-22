@@ -25,16 +25,25 @@ This equation is written on the the Lagrangian viewpoint, where we follow this f
 where:
 
 $$
-\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}|_{\mathbf{L} coordinates fixed} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
+\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}|\_{\mathbf{L} coordinates fixed} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
 $$
 
 
 On the left hand side is the derivative of the momentum of this fluid element, which represents a sum of all individual molecule's momentum in this fluid element; and on the right side the sum of forces acting on this element. There are two type of forces acting on fluid: body force, and surface force.
 
-To transform the equation onto the Eulerian viewpoint or description, it think it is more intuitive to parameterize the position vector.
+To transform the equation onto the Eulerian viewpoint or description, it think it is more intuitive to write down the full parametric form of the position vector.
 
 $$
-\mathbf{u}_L(\mathbf{x},t) = \mathbf{u}_E(\mathbf{X}(\mathbf{x},t), t)
+\mathbf{u}_L(\mathbf{x},t) = \mathbf{u}_E(\mathbf{X}(\mathbf{x},t), t) = \mathbf{u}
 $$
 
-This mean
+This means we should be able to establish a vector field $u$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the chain rule as shown below:
+
+$$
+\begin{split}
+\frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_E dV\Big) &= \int_{V}\frac{d}{dt}(\rho \mathbf{u}_E dV)\\
+&= \int_{V}\frac{d}{dt}(\rho \mathbf{u}) dV + \int_{V}\rho \mathbf{u}\frac{d}{dt}(dV)\\
+&= \int_{V}\rho\frac{d}{dt}(\mathbf{u}) dV +\int_{V}\mathbf{u}\frac{d}{dt}(\rho)dV +  \int_{V}\rho \mathbf{u}\nabla\cdot\mathbf{u}\\
+\end{split}
+$$
+
