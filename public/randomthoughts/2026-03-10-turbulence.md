@@ -13,12 +13,28 @@ According the kinetic theory of gas, pressure comes from collisions of gas molec
 
 In statistical and continuum mechanics, it is useful to define a representative elementary volume (REV), on which, the macroscopic properties are statistically meaningful and independent of the size of that volume. In this sense, macroscopic properties emerge as the average over microscopic behaviors and interactions. And there is ample evidence for the validity of this continuum assumption. For instance, measurements of river flow or air temperature are continuous and smooth with usual physical devices.
 
-
-Assuming a fluid element $V$, with arbitrary shape (not necessarily a cube shape), we can write down the momentum equation (or the Newton's second law) for this fluid element:
+Assuming a fluid element $V$, with arbitrary shape (not necessarily a cube shape), we can write down the momentum equation (or the Newton's second law) for this fluid element (satisfied the REV definition):
 
 $$
-\frac{d}{dt}\Big(\int_{V}\rho \mathbf{u} dV\Big) = \sum \mathbf{F}
+\frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_L dV\Big) = \sum \mathbf{F}
 $$
 
-On the left hand side is the sum of all individual molecule's momentum in the fluid element, and on the right side the sum of forces acting on this element. There are two type of forces: body force, and surface force.
 
+This equation is written on the the Lagrangian viewpoint, where we follow this fluid element. On this description, we can put a local coordinate attached into this element to track the trajectory over time. Therefore:
+
+where:
+
+$$
+\mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}|_{\mathbf{L} coordinates fixed} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
+$$
+
+
+On the left hand side is the derivative of the momentum of this fluid element, which represents a sum of all individual molecule's momentum in this fluid element; and on the right side the sum of forces acting on this element. There are two type of forces acting on fluid: body force, and surface force.
+
+To transform the equation onto the Eulerian viewpoint or description, it think it is more intuitive to parameterize the position vector.
+
+$$
+\mathbf{u}_L(\mathbf{x},t) = \mathbf{u}_E(\mathbf{X}(\mathbf{x},t), t)
+$$
+
+This mean
