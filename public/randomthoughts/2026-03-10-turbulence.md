@@ -72,6 +72,15 @@ $$
 \int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV
 $$
 
+$$
+\begin{aligned}
+\int_{V(t)}\frac{\partial}{\partial t}(\rho \mathbf{u})\, dV 
+&= \int_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}\Big)dV \\
+&+ \int_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV \\
+&+ \int_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u})\, dV
+\end{aligned}
+$$
+
 We can use the conservation of mass of the continuity equation as:
 
 $$

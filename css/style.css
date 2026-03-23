@@ -473,10 +473,11 @@ p {
     box-sizing: border-box;
 }
 
-/* MathJax display equations - wider + scrollable */
-.post-article mjx-container[display="true"] {
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-width: 110%;
-    margin-left: -5%;
+mjx-container[display="true"] {
+    display: block !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.5rem;
+    /* fade on right edge to hint scrollability */
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
 }
