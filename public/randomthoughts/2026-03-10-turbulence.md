@@ -105,7 +105,7 @@ $$
 So far, we only tackled the momentum derivative of the Newton's law. We can write down the total forces (body and surface) applied on this same fluid element:
 
 $$
-\sum \mathbf{F} = \int\_{V(t)}(\mathbf{B}dV + \int\_{S(t)}\mathbf{S})dS
+\sum \mathbf{F} = \int\_{V(t)}\mathbf{B}dV + \int\_{S(t)}\mathbf{S}dS
 $$
 
 The body force in this case is the gravity, thus:
@@ -117,7 +117,7 @@ $$
 For the surface force, this is the sum of all traction forces (we can call this stress vector $\mathbf{T}$) applied on the surfaces of the fluid element. According to the Cauchy's postulate, we can relate this stress vector with a stress tensor, which represents the internal forces to resist the deformation of fluid or solid.
 
 $$
-\int\_{S(t)}\mathbf{S}dS = int\_{S(t)}\mathbf{T}dS = int\_{S(t)}\mathbf{\sigma}\cdot\hat{\mathbf{n}}dS
+\int\_{S(t)}\mathbf{S}dS = \int\_{S(t)}\mathbf{T}dS = \int\_{S(t)}\mathbf{\sigma}\cdot\hat{\mathbf{n}}dS
 $$
 
 Applying the Gauss divergence theorem:
