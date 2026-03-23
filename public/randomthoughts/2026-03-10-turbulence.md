@@ -79,10 +79,13 @@ $$
 \end{aligned}
 $$
 
-We can use the conservation of mass of the continuity equation as:
+We can make use of the conservation of mass or the continuity equation as:
 
 $$
-\int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV = \int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho + \rho\nabla\cdot\mathbf{u}\Big)dV = 0
+\begin{aligned}
+\int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} &+ \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV = \\\\ 
+&= \int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho + \rho\nabla\cdot\mathbf{u}\Big)dV = 0 \\\\
+\end{aligned}
 $$
 
 Thus:
@@ -144,7 +147,10 @@ where $p$ is the isotropic thermal-dynamic pressure of the fluid, and $\tau$ is 
 The surface force is then written as:
 
 $$
-\int\_{V(t)}\nabla\cdot\mathbf{\sigma}dV = \int\_{V(t)}\nabla(-p + \mu(\nabla\mathbf{u} + (\nabla\mathbf{u})^T))dV = \int\_{V(t)}(-\nabla p + \mu\nabla^{2}\mathbf{u})dV
+\begin{aligned}
+\int\_{V(t)}\nabla\cdot\mathbf{\sigma}dV &= \int\_{V(t)}\nabla(-p + \mu(\nabla\mathbf{u} + (\nabla\mathbf{u})^T))dV \\\\
+&= \int\_{V(t)}(-\nabla p + \mu\nabla^{2}\mathbf{u})dV \\\\
+\end{aligned}
 $$
 
 Finally, we can arrive at:
