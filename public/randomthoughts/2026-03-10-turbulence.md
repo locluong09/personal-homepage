@@ -39,4 +39,37 @@ $$
 \frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}_E) dV + \int\_{S(t)}\rho \mathbf{u}_E(\mathbf{u}_E\cdot\hat{\mathbf{n}}) dS
 $$
 
+Applying Gauss's divergence theorem to the second term of the right hand side:
 
+$$
+\int\_{S(t)}\rho \mathbf{u}(\mathbf{u}\cdot\hat{\mathbf{n}}) dS = \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV
+$$
+
+Applying the chain rule for the first term:
+
+$$
+\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho \frac{\partial\mathbf{u}}{\partial t} dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV
+$$
+
+Because the frame of reference  in the Eulerian description is fixed in space--we observed the fluid flow at fixed points ($x$, $y$, $z$)--we can apply the chain rule again:
+
+$$
+\frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}
+$$
+
+
+$$
+\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \frac{\partial\mathbf{\rho}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{\rho}}{\partial t}
+$$
+
+Since $\rho$ is a scalar field, we can get:
+
+$$
+\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho
+$$
+
+Therefore:
+
+$$
+\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}\Big)dV + \int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV
+$$
