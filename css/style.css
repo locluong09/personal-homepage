@@ -241,7 +241,7 @@ a:hover {
     line-height: 1.8;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: visible;
     box-sizing: border-box;
 }
 
@@ -275,7 +275,7 @@ a:hover {
     margin-bottom: 1.5rem;
     max-width: 100%;
     width: 100%; /* Add this */
-    overflow: hidden; /* Add this */
+    overflow: visible; /* hidden before */
     box-sizing: border-box;
 }
 
