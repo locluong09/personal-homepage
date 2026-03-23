@@ -472,3 +472,11 @@ p {
     max-width: 100%;
     box-sizing: border-box;
 }
+
+/* MathJax display equations - wider + scrollable */
+.post-article mjx-container[display="true"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 110%;
+    margin-left: -5%;
+}
