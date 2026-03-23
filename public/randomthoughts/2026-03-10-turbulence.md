@@ -19,13 +19,11 @@ $$
 \frac{d}{dt}\Big(\int_{V}\rho \mathbf{u}_L dV\Big) = \sum \mathbf{F}
 $$
 
-This equation is written on the the Lagrangian viewpoint, where we follow this fluid element. On this description, we can put a local coordinate attached into this element to track the trajectory over time. Therefore:
+On the left hand side is the derivative of the momentum of this fluid element, which represents a sum of all individual molecule's momentum in this fluid element; and on the right side the sum of forces acting on this element. There are two type of forces acting on fluid: body force, and surface force. This equation is written on the the Lagrangian viewpoint, where we follow this fluid element. On this description, we can put a local coordinate attached into this element to track the trajectory over time. Therefore:
 
 $$
 \mathbf{u}_L(\mathbf{x},t) = \frac{d\mathbf{x}}{dt}\bigg|\_{\mathbf{L}\;\;\text{(fixed coordinates)}} = (\frac{\partial x}{\partial t}, \frac{\partial y}{\partial t}, \frac{\partial z}{\partial t})
 $$
-
-On the left hand side is the derivative of the momentum of this fluid element, which represents a sum of all individual molecule's momentum in this fluid element; and on the right side the sum of forces acting on this element. There are two type of forces acting on fluid: body force, and surface force.
 
 To transform the equation onto the Eulerian viewpoint or description, it think it is more intuitive to write down the full parametric form of the position vector.
 
@@ -39,7 +37,7 @@ $$
 \frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}_E) dV + \int\_{S(t)}\rho \mathbf{u}_E(\mathbf{u}_E\cdot\hat{\mathbf{n}}) dS
 $$
 
-Applying Gauss's divergence theorem to the second term of the right hand side:
+Applying Gauss divergence theorem to the second term of the right hand side:
 
 $$
 \int\_{S(t)}\rho \mathbf{u}(\mathbf{u}\cdot\hat{\mathbf{n}}) dS = \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV
@@ -57,9 +55,8 @@ $$
 \frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}
 $$
 
-
 $$
-\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \frac{\partial\mathbf{\rho}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{\rho}}{\partial t}
+\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \frac{\partial\mathbf{\rho}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}
 $$
 
 Since $\rho$ is a scalar field, we can get:
@@ -68,8 +65,93 @@ $$
 \frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho
 $$
 
+Hence:
+
+$$
+\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}\Big)dV +\\\\
+\int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV
+$$
+
+We can use the conservation of mass of the continuity equation as:
+
+$$
+\int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV = \int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho + \rho\nabla\cdot\mathbf{u}\Big)dV = 0
+$$
+
+Thus:
+
+$$
+\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}\Big)dV
+$$
+
+My argument is that if the Lagrangian frame of reference and the Eulerian fram of reference are only translational (no rotation), we can have:
+
+$$
+\frac{\partial\mathbf{X}}{\partial \mathbf{x}} = \mathbf{I}
+$$
+
 Therefore:
 
 $$
-\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}\Big)dV + \int\_{V(t)}\mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho \Big)dV + \int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV
+\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big)dV
 $$
+
+In term of the material or total derivative:
+
+$$
+\int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\frac{D\mathbf{u}}{Dt}dV
+$$
+
+So far, we only tackled the momentum derivative of the Newton's law. We can write down the total forces (body and surface) applied on this same fluid element:
+
+$$
+\sum \mathbf{F} = \int\_{V(t)}(\mathbf{B}dV + \int\_{S(t)}\mathbf{S})dS
+$$
+
+The body force in this case is the gravity, thus:
+
+$$
+\int\_{V(t)}\mathbf{B}dV = \int\_{V(t)}\rho \mathbf{g}dV
+$$
+
+For the surface force, this is the sum of all traction forces (we can call this stress vector $\mathbf{T}$) applied on the surfaces of the fluid element. According to the Cauchy's postulate, we can relate this stress vector with a stress tensor, which represents the internal forces to resist the deformation of fluid or solid.
+
+$$
+\int\_{S(t)}\mathbf{S}dS = int\_{S(t)}\mathbf{T}dS = int\_{S(t)}\mathbf{\sigma}\cdot\hat{\mathbf{n}}dS
+$$
+
+Applying the Gauss divergence theorem:
+
+$$
+\int\_{S(t)}\mathbf{\sigma}\cdot\hat{\mathbf{n}}dS = \int\_{V(t)}\nabla\cdot\mathbf{\sigma}dV
+$$
+
+I'll go through these forces quickly to arrive at the Navier-Stokes equation for an incompressible fluid ($\nabla\cdot\mathbf{u} = 0$). For a Newtonian fluid, we can write:
+
+$$
+\mathbf{\sigma} = -p\mathbf{I} + \mathbf{\tau} = -p + \mu(\nabla\mathbf{u} + (\nabla\mathbf{u})^T)
+$$
+
+where $p$ is the isotropic thermal-dynamic pressure of the fluid, and $\tau$ is the viscous stress tensor.
+
+The surface force is then written as:
+
+$$
+\int\_{V(t)}\nabla\cdot\mathbf{\sigma}dV = \int\_{V(t)}\nabla(-p + \mu(\nabla\mathbf{u} + (\nabla\mathbf{u})^T))dV = \int\_{V(t)}(-\nabla p + \mu\nabla^{2}\mathbf{u})dV
+$$
+
+Finally, we can arrive at:
+
+$$
+\int\_{V(t)}\rho\frac{D\mathbf{u}}{Dt}dV = \int\_{V(t)}(-\nabla p + \rho \mathbf{g}+ \mu\nabla^{2}\mathbf{u})dV
+$$
+
+Or:
+
+$$
+\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big) = -\nabla p + \rho \mathbf{g} + \mu\nabla^{2}\mathbf{u}
+$$
+
+
+
+
