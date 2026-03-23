@@ -6,11 +6,11 @@ This is to document my past research projects and a few random thoughts. Some re
 
 #### About this site
 
-This site is built entirely with Go: a pure Go backend and GoHTML for the frontend, and not much in style because I prefer keeping things simple. The site is deployed on Fly.io (still haven't paid anything for hosting so far). The free tier on Fly.io is more than enough for a personal blog.
+This site is built entirely with Go: a Go backend and GoHTML for the frontend, and not much in style because I prefer keeping things simple. The site is deployed on Fly.io (still haven't paid anything for hosting so far). The free tier on Fly.io is more than enough for a personal homepage as well as for blogging (random thoughts).
 
 #### Why Go?
 
-A while ago, I found a nice tutorial about Go for making a static website, and that was easy to follow. So I decided to use Go to learn a bit about web development. I also wanted something fast and easy to work with. Go’s standard library already has everything I need for a small website. net/http handles the routes, html/template renders the pages.
+A while ago, I found a nice tutorial about Go for making a static website, and that was easy to follow. So I decided to use Go to learn a bit about web development. I also wanted something fast and easy to work with. And Go’s standard library already has things I need for a small website.
 
 #### Deploying it
 
