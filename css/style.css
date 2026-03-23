@@ -475,9 +475,23 @@ p {
 
 mjx-container[display="true"] {
     display: block !important;
-    overflow-x: auto !important;
+    overflow-x: scroll !important;  /* always show scrollbar */
+    overflow-y: hidden !important;
     padding-bottom: 0.5rem;
-    /* fade on right edge to hint scrollability */
-    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
-    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    scrollbar-width: thin;                    /* Firefox */
+    scrollbar-color: var(--border-color) transparent;  /* Firefox */
+}
+
+/* Chrome/Safari */
+mjx-container[display="true"]::-webkit-scrollbar {
+    height: 4px;
+}
+
+mjx-container[display="true"]::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+mjx-container[display="true"]::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
 }
