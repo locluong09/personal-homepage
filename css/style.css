@@ -33,7 +33,7 @@ body {
     max-width: 80rem;
     margin: 0 auto;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 /* Header */
@@ -219,7 +219,7 @@ a:hover {
     margin: 0 auto;
     padding: 2rem 0;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .post-title {
@@ -454,7 +454,7 @@ main {
     max-width: 80rem;
     margin: 0 auto;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 h2 {
