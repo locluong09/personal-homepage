@@ -31,7 +31,7 @@ $$
 \mathbf{u}_L(\mathbf{x},t) = \mathbf{u}_E(\mathbf{X}(\mathbf{x},t), t) = \mathbf{u}
 $$
 
-This means we should be able to establish a vector field $\mathbf{u}$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude--of the vector field at this particular position--is identical with the particle velocity in the Lagrangian space. To transform the description from the Lagrangian to Eulerian, we may apply the Reynolds transport theorem (RTT) to a time-dependent fluid element as shown below:
+This means we should be able to establish a vector field $\mathbf{u}$ such that it can generate a flow map, which is at least 1 to 1 (is this necessary? I don know), so that each fluid particle in the Lagrangian description corresponding to a unique position in the the Eulerian space, where the velocity magnitude of the vector field at this particular position is identical with the particle velocity in the Lagrangian description. To transform the description from the Lagrangian to Eulerian, we may apply the Reynolds transport theorem (RTT) to a time-dependent fluid element as shown below:
 
 $$
 \frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}_E) dV + \int\_{S(t)}\rho \mathbf{u}_E(\mathbf{u}_E\cdot\hat{\mathbf{n}}) dS
@@ -49,7 +49,47 @@ $$
 \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho \frac{\partial\mathbf{u}}{\partial t} dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV
 $$
 
-Because the frame of reference  in the Eulerian description is fixed in space--we observed the fluid flow at fixed points ($x$, $y$, $z$)--we can apply the chain rule again:
+Quite a number of text books in fluid dynamics use material derivative here as the fluid element is moving in a vector field (in Eulerian description):
+
+$$
+\frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{X} = (\mathbf{x}, t)} = \frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabal)\mathbf{u}
+$$
+
+Similarly:
+
+$$
+\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\nabal\rho
+$$
+
+The continuity equation is express as:
+
+$$
+\frac{\partial\mathbf{\rho}}{\partial t} + \nabla(\rho \mathbf{u}) = 0
+$$
+
+Using this equation we can have:
+
+$$
+\begin{aligned}
+\int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV &= \\\\
+&= \int\_{V(t)} \Big(\rho\mathbf{u}(\nabla\cdot\mathbf{u}) + \mathbf{u}(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\nabla\rho)\Big) dV\\\\
+&= \int\_{V(t)} \mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\nabal\rho + \rho\nabla\mathbf{u}\Big)dV\\\\
+&= \int\_{V(t)} \mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \nabla(\rho \mathbf{u})\Big)dV\\\\
+&= 0\\\\
+\end{aligned}
+$$
+
+Then:
+
+$$
+\frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \frac{\partial\mathbf{u}}{\partial t} = \int\_{V(t)}\rho\frac{D\mathbf{u}}{Dt}dV
+$$
+
+
+## A divert from the derivation
+Even though it is proved that field is fundamental block of nature as shown in the fruitful theories of gravitation field (recasting Newton's law using field equation), wave equation, electromagnetic field (Maxwell's equations), or even quantum field theory (standard model) of atomic and sub-atomic particle, I am not totally happy or satisfied with the transformation from the Lagrangian to Eulerian specification. 
+
+The derivative is expressed in the Eulerian specification. I think it is natural to define a frame of reference in Lagrangian description (i.e., local coordinates) that attaches to the fluid element, and a frame of reference (i.e., global coordinate) that can be used to depicts the Eulerian description. Because the frame of reference in the Eulerian description is fixed in space (e.g., we observed the fluid flow at fixed points: $x$, $y$, $z$) we can apply the chain rule again:
 
 $$
 \frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}
@@ -94,11 +134,14 @@ $$
 \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\Big(\frac{\partial\mathbf{u}}{\partial t} + \frac{\partial\mathbf{u}}{\partial \mathbf{X}} \frac{\partial\mathbf{X}}{\partial \mathbf{x}}\frac{\partial\mathbf{x}}{\partial t}\Big)dV
 $$
 
-My argument is that if the Lagrangian frame of reference and the Eulerian fram of reference are only translational (no rotation), we can have:
+At first, I though something was wrong with my derivation where I ended up having additional term $\frac{\partial\mathbf{X}}{\partial \mathbf{x}}$, and I have no clue how to collapse or remove this term out of the derivative of the chain rule. My argument was that if the Lagrangian and Eulerian frames of reference are only translational (no rotation), we can have:
 
 $$
 \frac{\partial\mathbf{X}}{\partial \mathbf{x}} = \mathbf{I}
 $$
+
+However, this is not quite true as the local frame of reference on Lagrangian description can be of any directions or rotations with respect to the fixed coordinates in the Eulerian description. It is likely that my adding of a local coordinates is not a good idea.
+To resolve this, I think we need a bijection that maps every points in the Eulerian specification to every fluid parcels in the Lagrangian specification. This may imply that the local coordinates is just a temporary system where individual fluid element attached to this system whose properties (e.g., velocity, density) have a equivalent values in the field formalism in the Eulerian specification.
 
 Therefore:
 
@@ -112,7 +155,9 @@ $$
 \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho\frac{D\mathbf{u}}{Dt}dV
 $$
 
-So far, we only tackled the momentum derivative of the Newton's law. We can write down the total forces (body and surface) applied on this same fluid element:
+## Forces acting on a fluid element
+
+So far, we only tackled the derivative of the momentum of the Newton's law. We can write down the total forces (body and surface) applied on this fluid element:
 
 $$
 \sum \mathbf{F} = \int\_{V(t)}\mathbf{B}dV + \int\_{S(t)}\mathbf{S}dS
@@ -124,7 +169,7 @@ $$
 \int\_{V(t)}\mathbf{B}dV = \int\_{V(t)}\rho \mathbf{g}dV
 $$
 
-For the surface force, this is the sum of all traction forces (we can call this stress vector $\mathbf{T}$) applied on the surfaces of the fluid element. According to the Cauchy's postulate, we can relate this stress vector with a stress tensor, which represents the internal forces to resist the deformation of fluid or solid.
+For the surface force, this is the sum of all traction forces (we can call this as stress vector $\mathbf{T}$) applied on the surfaces of the fluid element. According to the Cauchy's postulate, we can relate this stress vector with a stress tensor, which represents the internal forces to resist the deformation of fluid or solid.
 
 $$
 \int\_{S(t)}\mathbf{S}dS = \int\_{S(t)}\mathbf{T}dS = \int\_{S(t)}\mathbf{\sigma}\cdot\hat{\mathbf{n}}dS
@@ -165,6 +210,31 @@ $$
 \rho\Big(\frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}\Big) = -\nabla p + \rho \mathbf{g} + \mu\nabla^{2}\mathbf{u}
 $$
 
+The summary of this derivation is that we wrote the Newton's second law for individual fluid parcel, but ended up with a field construction of the Navier-Stokes equation which requires a vector field $\mathbf{u}$ and a scalar field $p$ for the solution.
+
+There are two competing terms here: the transport term ($\mathbf{u}\cdot\nabla\mathbf{u}$) which is non-linear and the viscous dissipation term ($\mu\nabla^{2}\mathbf{u}$) which counteracts the transport term.
+
+Reynolds came up with a very nice idea to study the onset of turbulence:
+
+$$
+Re = \frac{\text{transport (or inertia) term}}{\text{viscous dissipation term}}
+$$
+
+We have the transport term scales with squared velocity and inverse length:
+
+$$
+\rho\mathbf{u}\cdot\nabla\mathbf{u} \sim \rho\frac{U^{2}}{L}
+$$
+
+and the viscous term scales with velocity but inverse squared length:
+
+$$
+\mu\nabla^{2}\mathbf{u} \sim \mu\frac{U}{L^2}
+$$
+
+Taking the ratio, we can arrive at a dimensionless number that Reynolds came up with more than a century ago.
+
+Our current understanding or the best explanation is that kinetic energy of turbulence cascades into smaller eddies, and around smallest scales of eddies, viscous dampens (i.e., calms fluid flow down or the opposite of the transport term), and dissipates kinetic energy into heat. However, things remain unclear using this picture. We don't see eddies in the Navier-Stokes equations, only a velocity field and pressure field. How these fields generate eddies by a non-linear mechanism which appears in the transport term. And is there a possibility that the transport term is much larger than the viscous terms at a really small scale (maybe smaller than the Kolmogorov scale)--in other words the rate of energy transported is much higher than the rate of energy dissipated as heat--such that the Navier-Stokes equation blowups or develop a singularity?
 
 
 
