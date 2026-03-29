@@ -49,16 +49,16 @@ $$
 \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho \frac{\partial\mathbf{u}}{\partial t} dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV
 $$
 
-Quite a number of text books in fluid dynamics use material derivative here as the fluid element is moving in a vector field (in Eulerian description):
+Taking things for granted here by using the material derivative, since the fluid element is moving in a vector field (in Eulerian description):
 
 $$
-\frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{X} = (\mathbf{x}, t)} = \frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabal)\mathbf{u}
+\frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{X} = (\mathbf{x}, t)} = \frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}
 $$
 
 Similarly:
 
 $$
-\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\nabal\rho
+\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + (\mathbf{u}\cdot\nabla)\rho
 $$
 
 The continuity equation is express as:
@@ -71,9 +71,8 @@ Using this equation we can have:
 
 $$
 \begin{aligned}
-\int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV &= \\\\
-&= \int\_{V(t)} \Big(\rho\mathbf{u}(\nabla\cdot\mathbf{u}) + \mathbf{u}(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\nabla\rho)\Big) dV\\\\
-&= \int\_{V(t)} \mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\nabal\rho + \rho\nabla\mathbf{u}\Big)dV\\\\
+\int\_{V(t)}\rho\mathbf{u}(\nabla\cdot\mathbf{u}) dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV &= \int\_{V(t)} \Big(\rho\mathbf{u}(\nabla\cdot\mathbf{u}) + \mathbf{u}(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho)\Big) dV\\\\
+&= \int\_{V(t)} \mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \mathbf{u}\cdot\nabla\rho + \rho\nabla\cdot\mathbf{u}\Big)dV\\\\
 &= \int\_{V(t)} \mathbf{u}\Big(\frac{\partial\mathbf{\rho}}{\partial t} + \nabla(\rho \mathbf{u})\Big)dV\\\\
 &= 0\\\\
 \end{aligned}
@@ -234,7 +233,11 @@ $$
 
 Taking the ratio, we can arrive at a dimensionless number that Reynolds came up with more than a century ago.
 
-Our current understanding or the best explanation is that kinetic energy of turbulence cascades into smaller eddies, and around smallest scales of eddies, viscous dampens (i.e., calms fluid flow down or the opposite of the transport term), and dissipates kinetic energy into heat. However, things remain unclear using this picture. We don't see eddies in the Navier-Stokes equations, only a velocity field and pressure field. How these fields generate eddies by a non-linear mechanism which appears in the transport term. And is there a possibility that the transport term is much larger than the viscous terms at a really small scale (maybe smaller than the Kolmogorov scale)--in other words the rate of energy transported is much higher than the rate of energy dissipated as heat--such that the Navier-Stokes equation blowups or develop a singularity?
+$$
+Re = \frac{\rbhho U L}{\mu}
+$$
+
+Our current understanding or the best explanation is that kinetic energy of turbulence cascades into smaller eddies, and around smallest scales of eddies, viscous dampens (i.e., calms fluid flow down or the opposite of the transport term), and dissipates kinetic energy into heat. However, things remain unclear using this picture (Richardson-Kolmogorov depiction). We don't see eddies in the Navier-Stokes equations, only a velocity field and pressure field. How these fields generate eddies by a non-linear mechanism which appears in the transport term. And is there a possibility that the transport term is much larger than the viscous terms at a really small scale (maybe smaller than the Kolmogorov scale)--in other words the rate of energy transported is much higher than the rate of energy dissipated as heat--such that the Navier-Stokes equation blowups or develop a singularity?
 
 
 
