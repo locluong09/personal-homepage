@@ -58,7 +58,7 @@ $$
 Similarly:
 
 $$
-\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{E}\;\;\text{(fixed coordinates)}} = \frac{\partial\mathbf{\rho}}{\partial t} + (\mathbf{u}\cdot\nabla)\rho
+\frac{\partial\mathbf{\rho}}{\partial t}\bigg|\_{\mathbf{X} = (\mathbf{x}, t)} = \frac{\partial\mathbf{\rho}}{\partial t} + (\mathbf{u}\cdot\nabla)\rho
 $$
 
 The continuity equation is express as:
@@ -81,7 +81,7 @@ $$
 Then:
 
 $$
-\frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \frac{\partial\mathbf{u}}{\partial t} = \int\_{V(t)}\rho\frac{D\mathbf{u}}{Dt}dV
+\frac{d}{dt}\Big(\int\_{V(t)}\rho \mathbf{u}_E dV\Big) = \int\_{V(t)}\rho\frac{D\mathbf{u}}{Dt}dV
 $$
 
 
@@ -234,7 +234,7 @@ $$
 Taking the ratio, we can arrive at a dimensionless number that Reynolds came up with more than a century ago.
 
 $$
-Re = \frac{\rbhho U L}{\mu}
+Re = \frac{\rho U L}{\mu}
 $$
 
 Our current understanding or the best explanation is that kinetic energy of turbulence cascades into smaller eddies, and around smallest scales of eddies, viscous dampens (i.e., calms fluid flow down or the opposite of the transport term), and dissipates kinetic energy into heat. However, things remain unclear using this picture (Richardson-Kolmogorov depiction). We don't see eddies in the Navier-Stokes equations, only a velocity field and pressure field. How these fields generate eddies by a non-linear mechanism which appears in the transport term. And is there a possibility that the transport term is much larger than the viscous terms at a really small scale (maybe smaller than the Kolmogorov scale)--in other words the rate of energy transported is much higher than the rate of energy dissipated as heat--such that the Navier-Stokes equation blowups or develop a singularity?
