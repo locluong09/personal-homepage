@@ -10,8 +10,4 @@ This site is built entirely with Go: a Go backend and GoHTML for the frontend, a
 
 #### Why Go?
 
-A while ago, I found a nice tutorial about Go for making a static website, and that was easy to follow. So I decided to use Go to learn a bit about web development. I also wanted something fast and easy to work with. And Go’s standard library already has things I need for a small website.
-
-#### Deploying it
-
-The workflow turned out to be really smooth. I write my markdown posts locally, push to GitHub, and Fly.io automatically deploys them. I just need to push new post to this repo, Fly will update the site accordingly.
+A while ago, I found a nice tutorial about Go for making a static website, and that was easy to follow. So I decided to use Go to learn a bit about web development. I also wanted something fast and easy to work with. And Go’s standard library already has things I need for a small website. The deployment turned out to be really smooth. I write my markdown posts locally, push to GitHub, and Fly.io automatically deploys them. I just need to push new post to this repo, Fly will update the site accordingly.
