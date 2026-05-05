@@ -49,7 +49,7 @@ $$
 \int\_{V(t)}\frac{\partial }{\partial t}(\rho \mathbf{u}) dV = \int\_{V(t)}\rho \frac{\partial\mathbf{u}}{\partial t} dV + \int\_{V(t)}\mathbf{u}\frac{\partial \rho}{\partial t} dV
 $$
 
-Taking things for granted here by using the material derivative, since the fluid element is moving in a vector field (in Eulerian description):
+Since the fluid element is moving in a vector field (in Eulerian description), the derivative of $\mathbf{u}$ can be expressed using a material derivative (take also spatial derivative by chain's rule) :
 
 $$
 \frac{\partial\mathbf{u}}{\partial t}\bigg|\_{\mathbf{X} = (\mathbf{x}, t)} = \frac{\partial\mathbf{u}}{\partial t} + (\mathbf{u}\cdot\nabla)\mathbf{u}
@@ -85,7 +85,7 @@ $$
 $$
 
 
-## A divert from the derivation
+## A divert from the derivation which is likely wrong here but I still want to share
 Even though it is proved that field is fundamental block of nature as shown in the fruitful theories of gravitation field (recasting Newton's law using field equation), wave equation, electromagnetic field (Maxwell's equations), or even quantum field theory (standard model) of atomic and sub-atomic particle, I am not totally happy or satisfied with the transformation from the Lagrangian to Eulerian specification. 
 
 The derivative is expressed in the Eulerian specification. I think it is natural to define a frame of reference in Lagrangian description (i.e., local coordinates) that attaches to the fluid element, and a frame of reference (i.e., global coordinate) that can be used to depicts the Eulerian description. Because the frame of reference in the Eulerian description is fixed in space (e.g., we observed the fluid flow at fixed points: $x$, $y$, $z$) we can apply the chain rule again:
