@@ -12,6 +12,8 @@ Có lẽ ai cũng đều biết rằng có ba thành phần chính chi phối cu
 
 Có phải câu trả lời nằm ở bản thân chúng ta, điều mà chúng ta không thường nhận ra nhưng đó là hiện tại? Và khi chúng ta ý thức được mình đang sống ở hiện tại, ta có thật sự sống trọn vẹn, hay vẫn để tâm trí mình lang thang giữa lo toan của tương lai và tiếc nuối của quá khứ?
 
+P/S: just my 2cents!
+
 <!-- Money is essential to have a life. On the other hand, money is necessary for the evolution of humanity! Why do we want to get more money? Many believe money can make life easier, but I guess it makes us more complicated. Why do we want to acquire power? Why do some people leave a country to come to a (better) country? Why do we sacrifice our time to do what we don't want to do? Why do we want to put our health at risk for the purpose of making money? Why don't we choose one thing instead of others? Many why questions we can ask, but it is hard to find the answers.
 
 I would say it is nearly impossible to have such a model, but three things I believe are important for any human being: love, gratitude, and honesty. 
